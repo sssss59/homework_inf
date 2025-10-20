@@ -1,4 +1,4 @@
-public class car {
+public class Car {
     private int id;
     private String brand;
     private String model;
@@ -6,7 +6,7 @@ public class car {
     private String color;
     private int price;
     private int reg_num;
-    public car(int id, String brand, String model, int year, String color, int price, int reg_num){
+    public Car(int id, String brand, String model, int year, String color, int price, int reg_num){
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -43,7 +43,7 @@ public class car {
         this.brand = brand;
     }
     public void setModel(String model){
-        this.mdoel = model;
+        this.model = model;
     }
     public void setYear(int year){
         this.year = year;

@@ -1,14 +1,31 @@
-import com.sibsutis.devices.Device;
+package com.sibsutis.devices;
 
-public class PersonalComputer extends Device{
-    public PersonalComputer(int id,int price){
-        super(id, price, "");
+import java.util.Objects;
+
+public class PersonalComputer extends Device {
+    
+    public PersonalComputer(int id, int price) {
+        super(id, price, null);
     }
-    public PersonalComputer(int id, int price, String ip){
+    
+    public PersonalComputer(int id, int price, String ip) {
         super(id, price, ip);
     }
+    
     @Override
     public String getDeviceType() {
-        return "Personal Computer";
+        return "PersonalComputer";
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        return getClass() == obj.getClass();
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getDeviceType());
     }
 }

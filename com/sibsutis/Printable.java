@@ -1,5 +1,5 @@
-class Printable{
-    public static String(){
-        return info_O;
-    }
+package com.sibsutis;
+
+public interface Printable{
+    public String print();
 }

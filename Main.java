@@ -51,6 +51,10 @@ public class Cache<T>{
         }
         return false;
     }
+    public T getFirst(){
+        if (size > 0 && List[0] != null){return (T) List[0];}
+        else{return null;}
+    }
     
 }
 

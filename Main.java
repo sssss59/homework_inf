@@ -14,7 +14,6 @@ public class Cache<T>{
         if (item == null){
             throw new IllegalArgumentException("Не чувак пустой элемент не будет добавлен");
         }
-        
         if(size<n){
             List[size] = item;
             size++;
@@ -24,6 +23,22 @@ public class Cache<T>{
             }
             List[n-1] = item;
         }
+    }
+    public boolean remove(T item){
+        if( item == null){
+            throw new IllegalArgumentException("Не чувак пустой элемент не приколько");
+        }
+        for(int i = 0; i < size; i++){
+            if(List[i] != null &&  List[i].equals(item)){
+                for(int j = i; j < size -1; j++){
+                    List[j] = List[j+1];
+                }
+                List[size-1] = null;
+                size--;
+                return true;
+            }
+        }
+        return false;
     }
 }
 

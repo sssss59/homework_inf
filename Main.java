@@ -75,6 +75,51 @@ public class Cache<T>{
 
 public class Main{
     public static void main(String[] args){
+        Cache<String> cache = new Cache<>(3);
+        
+        System.out.println("\nТестирование метода add");
+        cache.add("Первый");
+        cache.add("Второй");
+        cache.add("Третий");
+        System.out.println("Добавлено 3 элемента. " + cache.getItemByIndex(0) + cache.getItemByIndex(1) + cache.getItemByIndex(2));
+        
+        cache.add("Четвертый");
+        System.out.println("Добавлен четвертый элемент. Размер кэша: " + cache.getItemByIndex(0) + cache.getItemByIndex(1) + cache.getItemByIndex(2));
+        
 
+        System.out.println("\nТестирование метода exists");
+        System.out.println("Элемент 'Первый' существует: " + cache.exists("Первый"));
+        System.out.println("Элемент 'Второй' существует: " + cache.exists("Второй"));
+        System.out.println("Элемент 'Третий' существует: " + cache.exists("Третий"));
+        System.out.println("Элемент 'Четвертый' существует: " + cache.exists("Четвертый"));
+ 
+        System.out.println("\nТестирование метода getFirst");
+        System.out.println("Первый элемент: " + cache.getFirst());
+        
+        System.out.println("\nТестирование метода getLast");
+        System.out.println("Последний элемент: " + cache.getLast());
+        
+
+        System.out.println("\nТестирование метода remove");
+        System.out.println("Удаление 'Второй': " + cache.remove("Второй"));
+        System.out.println("Удаление 'Несуществующий': " + cache.remove("Несуществующий"));
+        
+  
+        System.out.println("\nПосле удаления");
+        System.out.println("Первый элемент: " + cache.getFirst());
+        System.out.println("Последний элемент: " + cache.getLast());
+        
+        System.out.println("\nТестирование с Integer");
+        Cache<Integer> intCache = new Cache<>(2);
+        intCache.add(10);
+        intCache.add(20);
+        intCache.add(30); 
+        
+        System.out.println("Первый элемент: " + intCache.getFirst());
+        System.out.println("Последний элемент: " + intCache.getLast());
+        System.out.println("Существует ли 10: " + intCache.exists(10));
+        System.out.println("Существует ли 20: " + intCache.exists(20));
+        System.out.println("Существует ли 30: " + intCache.exists(30));
+        
     }
 }

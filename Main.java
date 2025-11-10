@@ -55,6 +55,14 @@ public class Cache<T>{
         if (size > 0 && List[0] != null){return (T) List[0];}
         else{return null;}
     }
+    public T getLast(){
+        if(size > 0 && List[size-1] != null){
+            return (T) List[size-1];
+        }
+        else{
+            return null;
+        }
+    }
     
 }
 

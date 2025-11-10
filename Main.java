@@ -40,6 +40,18 @@ public class Cache<T>{
         }
         return false;
     }
+    public boolean exists(T item){
+        if( item == null){
+            throw new IllegalArgumentException("Не чувак пустой элемент не приколько");
+        }
+        for(int i = 0; i < size; i++){
+            if( List[i] != null && List[i].equals(item)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }
 
 

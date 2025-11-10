@@ -63,7 +63,13 @@ public class Cache<T>{
             return null;
         }
     }
-    
+    public T getItemByIndex(int i){
+        if(List[i] != null){
+            return (T) List[i];
+        }else{
+            return null;
+        }
+    }
 }
 
 

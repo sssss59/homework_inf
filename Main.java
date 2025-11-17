@@ -13,7 +13,7 @@ public class Cache<T>{
         }
     }
 
-    void add(T item){
+    public void add(T item){
         if(item == null){
             throw new IllegalArgumentException("Неправильно введен элемент");
         }
@@ -22,16 +22,23 @@ public class Cache<T>{
         }
         array.add(item);
     }
-    boolean remove(T item){
+    public boolean remove(T item){
         if(item == null){
             throw new IllegalArgumentException("Неправильно введен элемент");
         }
         return array.remove(item);
     }
-    boolean exists(T item){
+    public boolean exists(T item){
         if(item == null){
             throw new IllegalArgumentException("Неправильно введен элемент");
         }
         return array.contains(item);
+    }
+    public T getFirst(){
+        if(array.getFirst() == null){
+            throw new IllegalArgumentException("Список еще пуст");
+        }else{
+            return array.getFirst();
+        }
     }
 }

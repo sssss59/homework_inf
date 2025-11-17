@@ -22,4 +22,10 @@ public class Cache<T>{
         }
         array.add(item);
     }
+    boolean remove(T item){
+        if(item == null){
+            throw new IllegalArgumentException("Неправильно введен элемент");
+        }
+        return array.remove(item);
+    }
 }

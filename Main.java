@@ -41,4 +41,12 @@ public class Cache<T>{
             return array.getFirst();
         }
     }
+    public T getLast(){
+        if(array.getLast() == null){
+            throw new IllegalArgumentException("Список еще пуст");
+        }
+        else{
+            return array.getLast();
+        }
+    }
 }

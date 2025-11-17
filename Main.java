@@ -1,52 +1,35 @@
-import java.util;
+import java.util.*;
 
-public class Cache<T>{
-    private final LinkedList <T> array;
-    private int max_size;
 
-    public Cache(int size){
-        if(size <= 0){
-            throw new IllegalArgumentException("Размер должен быть больше 0");
-        }else{
-            this.size = size;
-            this.array = new LinkedList<T>();
-        }
-    }
-
-    public void add(T item){
-        if(item == null){
-            throw new IllegalArgumentException("Неправильно введен элемент");
-        }
-        if(array.size() > max_size){
-            array.removeFirst();
-        }
-        array.add(item);
-    }
-    public boolean remove(T item){
-        if(item == null){
-            throw new IllegalArgumentException("Неправильно введен элемент");
-        }
-        return array.remove(item);
-    }
-    public boolean exists(T item){
-        if(item == null){
-            throw new IllegalArgumentException("Неправильно введен элемент");
-        }
-        return array.contains(item);
-    }
-    public T getFirst(){
-        if(array.getFirst() == null){
-            throw new IllegalArgumentException("Список еще пуст");
-        }else{
-            return array.getFirst();
-        }
-    }
-    public T getLast(){
-        if(array.getLast() == null){
-            throw new IllegalArgumentException("Список еще пуст");
-        }
-        else{
-            return array.getLast();
-        }
+public class Main{
+    public static void main(String[] args){
+        Cache<String> stringCache = new Cache<String>(3);
+        stringCache.add("Первый");
+        stringCache.add("Второй");
+        stringCache.add("Третий");
+        System.out.println("После добавления 3 элементов: " + stringCache);
+        
+        stringCache.add("Четвертый");
+        System.out.println("После добавления 4-го элемента: " + stringCache);
+        
+        System.out.println("Первый элемент: " + stringCache.getFirst());
+        System.out.println("Последний элемент: " + stringCache.getLast());
+        System.out.println("Элемент по индексу 1: " + stringCache.getItemByIndex(1));
+        System.out.println("Элемент по индексу 5: " + stringCache.getItemByIndex(5));
+        
+        System.out.println("Существует 'Второй': " + stringCache.exists("Второй"));
+        System.out.println("Существует 'Первый': " + stringCache.exists("Первый"));
+        
+        System.out.println("Удаление 'Второй': " + stringCache.remove("Второй"));
+        System.out.println("После удаления: " + stringCache);
+        System.out.println("Удаление несуществующего: " + stringCache.remove("Несуществующий"));
+        
+        Cache<Integer> intCache = new Cache<Integer>(2);
+        intCache.add(10);
+        intCache.add(20);
+        intCache.add(30);
+        System.out.println("cache из целочисленных: " + intCache);
+        System.out.println("Первый элемент: " + intCache.getFirst());
+        System.out.println("Существует 20: " + intCache.exists(20));
     }
 }

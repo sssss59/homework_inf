@@ -28,4 +28,10 @@ public class Cache<T>{
         }
         return array.remove(item);
     }
+    boolean exists(T item){
+        if(item == null){
+            throw new IllegalArgumentException("Неправильно введен элемент");
+        }
+        return array.contains(item);
+    }
 }
